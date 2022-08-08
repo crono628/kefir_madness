@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "firebase deploy --only hosting:kefirmadness",
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^9.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
