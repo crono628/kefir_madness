@@ -3,7 +3,7 @@ import { Box, Container } from '@mui/system';
 import React, { useReducer } from 'react';
 import { initialState, reducer } from './reducer';
 
-const KefirMath = () => {
+const KefirMath = ({ metric }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const ratio = 16;
 
@@ -19,24 +19,58 @@ const KefirMath = () => {
     });
   };
 
+  const boxStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    width: '100%',
+    height: '100%',
+    margin: '10px',
+  };
+
   return (
     <Box my={5}>
-      <Container maxWidth="xs">
-        <div>
-          <div>Tablespoons: {state.tablespoons}</div>
-          <div>Grains: {state.grains} grams</div>
-        </div>
+      <Box sx={{ maxWidth: '60vw' }}>
         <Slider
           min={15}
           max={250}
           value={state.grains}
           onChange={handleGrainChange}
         />
-        <div>
-          <div>Cups: {state.cups}</div>
-          <div>Milk: {state.milk} milliliters</div>
-        </div>
-      </Container>
+      </Box>
+      <Box sx={boxStyle}>
+        {metric ? (
+          <div>
+            Grams of kefir grains:
+            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+              {state.grains}
+            </Box>
+          </div>
+        ) : (
+          <div>
+            Tablespoons:
+            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+              {state.tablespoons}
+            </Box>
+          </div>
+        )}
+        {metric ? (
+          <div>
+            Milliliters of milk:
+            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+              {state.milk}
+            </Box>
+          </div>
+        ) : (
+          <div>
+            Cups of milk:
+            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+              {state.cups}
+            </Box>
+          </div>
+        )}
+      </Box>
     </Box>
   );
 };
