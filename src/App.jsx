@@ -1,5 +1,6 @@
 import { Box, Container, Switch } from '@mui/material';
 import React, { useState } from 'react';
+import Footer from './components/Footer';
 import KefirMath from './components/KefirMath';
 
 const App = () => {
@@ -18,16 +19,30 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }} mt={5}>
-        <h1 className="title">Kefir Madness</h1>
-        <div>
-          {metric ? 'Metric' : 'Imperial'}{' '}
-          <Switch checked={metric} onChange={handleMetricChange} />
-        </div>
+    <Box>
+      <Container maxWidth="sm">
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+          my={5}
+        >
+          <Box sx={{ fontSize: '3rem' }} className="title">
+            Kefir Madness
+          </Box>
+          <div>
+            {metric ? 'Metric' : 'Imperial'}{' '}
+            <Switch checked={metric} onChange={handleMetricChange} />
+          </div>
+        </Box>
+        <KefirMath metric={metric} />
+      </Container>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Footer />
       </Box>
-      <KefirMath metric={metric} />
-    </Container>
+    </Box>
   );
 };
 

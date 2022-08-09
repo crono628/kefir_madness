@@ -1,4 +1,4 @@
-import { Slider } from '@mui/material';
+import { Card, Paper, Slider } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import React, { useReducer } from 'react';
 import { initialState, reducer } from './reducer';
@@ -30,48 +30,55 @@ const KefirMath = ({ metric }) => {
   };
 
   return (
-    <Box my={5}>
-      <Box sx={{ maxWidth: '60vw' }}>
-        <Slider
-          min={15}
-          max={250}
-          value={state.grains}
-          onChange={handleGrainChange}
-        />
+    <Card elevation={3}>
+      <Box m={3}>
+        <Box sx={{ maxWidth: '60vw' }}>
+          <Slider
+            min={15}
+            max={250}
+            value={state.grains}
+            onChange={handleGrainChange}
+          />
+        </Box>
+        <Box sx={boxStyle}>
+          {metric ? (
+            <div>
+              Grams of kefir grains:
+              <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+                {state.grains}
+              </Box>
+            </div>
+          ) : (
+            <div>
+              Tablespoons:
+              <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+                {state.tablespoons}
+              </Box>
+            </div>
+          )}
+          {metric ? (
+            <div>
+              <div>
+                Milliliters of milk:
+                <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+                  {state.milk}
+                </Box>
+              </div>
+              <div style={{ fontSize: '0.7rem' }}>
+                * 1ml of milk = 1 gram if weighing
+              </div>
+            </div>
+          ) : (
+            <div>
+              8 oz cups of milk:
+              <Box component="span" ml={1} sx={{ position: 'absolute' }}>
+                {state.cups}
+              </Box>
+            </div>
+          )}
+        </Box>
       </Box>
-      <Box sx={boxStyle}>
-        {metric ? (
-          <div>
-            Grams of kefir grains:
-            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
-              {state.grains}
-            </Box>
-          </div>
-        ) : (
-          <div>
-            Tablespoons:
-            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
-              {state.tablespoons}
-            </Box>
-          </div>
-        )}
-        {metric ? (
-          <div>
-            Milliliters of milk:
-            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
-              {state.milk}
-            </Box>
-          </div>
-        ) : (
-          <div>
-            Cups of milk:
-            <Box component="span" ml={1} sx={{ position: 'absolute' }}>
-              {state.cups}
-            </Box>
-          </div>
-        )}
-      </Box>
-    </Box>
+    </Card>
   );
 };
 
