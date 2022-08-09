@@ -1,10 +1,10 @@
-import { Card, Paper, Slider } from '@mui/material';
-import { Box, Container } from '@mui/system';
-import React, { useReducer } from 'react';
-import { initialState, reducer } from './reducer';
+import { Card, Slider } from '@mui/material';
+import { Box } from '@mui/system';
+import React from 'react';
+import { useAppContext } from '../AppContext';
 
 const KefirMath = ({ metric }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, dispatch } = useAppContext();
   const ratio = 16;
 
   const handleGrainChange = (e) => {
@@ -70,7 +70,7 @@ const KefirMath = ({ metric }) => {
             </div>
           ) : (
             <div>
-              8 oz cups of milk:
+              8oz cups of milk:
               <Box component="span" ml={1} sx={{ position: 'absolute' }}>
                 {state.cups}
               </Box>
