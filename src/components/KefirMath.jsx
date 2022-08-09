@@ -32,14 +32,6 @@ const KefirMath = ({ metric }) => {
   return (
     <Card elevation={3}>
       <Box m={3}>
-        <Box sx={{ maxWidth: '60vw' }}>
-          <Slider
-            min={15}
-            max={250}
-            value={state.grains}
-            onChange={handleGrainChange}
-          />
-        </Box>
         <Box sx={boxStyle}>
           {metric ? (
             <div>
@@ -76,6 +68,14 @@ const KefirMath = ({ metric }) => {
               </Box>
             </div>
           )}
+        </Box>
+        <Box mt={4}>
+          <Slider
+            min={15}
+            max={250}
+            value={state.grains}
+            onChange={handleGrainChange}
+          />
         </Box>
       </Box>
     </Card>

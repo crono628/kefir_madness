@@ -17,7 +17,11 @@ export function AppWrapper({ children }) {
 
   useEffect(() => {
     if (state !== initialState) {
-      setCookie('measurements', state, { path: '/' });
+      setCookie('measurements', state, {
+        path: '/',
+        secure: true,
+        sameSite: 'none',
+      });
     }
   }, [state]);
 
