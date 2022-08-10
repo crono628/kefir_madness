@@ -1,12 +1,9 @@
 import { Box, Container, Switch } from '@mui/material';
 import React, { useState } from 'react';
 import Footer from './components/Footer';
-import KefirInfo from './components/KefirInfo';
 import KefirMath from './components/KefirMath';
-import { kefirInstructions } from './components/kefir-info/kefirInstructions';
-import { kefirDo } from './components/kefir-info/kefirDo';
-import { kefirDont } from './components/kefir-info/kefirDont';
 import Scroll from './components/Scroll';
+import InfoTabs from './components/InfoTabs';
 
 const App = () => {
   const [metric, setMetric] = useState(true);
@@ -38,19 +35,13 @@ const App = () => {
           <Box sx={{ fontSize: '3rem' }} className="title">
             Kefir Madness
           </Box>
-          <div>
+          <Box>
             {metric ? 'Metric' : 'Imperial'}{' '}
             <Switch checked={metric} onChange={handleMetricChange} />
-          </div>
+          </Box>
         </Box>
         <KefirMath metric={metric} />
-        <KefirInfo
-          title={'Kefir Instructions'}
-          list={kefirInstructions}
-          ordered={true}
-        />
-        <KefirInfo title={'Kefir DO'} list={kefirDo} />
-        <KefirInfo title={"Kefir DON'T"} list={kefirDont} />
+        <InfoTabs />
       </Container>
       <Box mt={10} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Footer />
