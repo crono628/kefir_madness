@@ -1,9 +1,7 @@
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Tab } from '@mui/material';
 import React, { useState } from 'react';
-import { kefirInstructions } from './kefir-info/kefirInstructions';
-import { kefirDo } from './kefir-info/kefirDo';
-import { kefirDont } from './kefir-info/kefirDont';
+import { kefirData } from './kefirData';
 import KefirInfo from './KefirInfo';
 
 const InfoTabs = () => {
@@ -20,22 +18,30 @@ const InfoTabs = () => {
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleTabs} aria-label="lab API tabs example">
               <Tab label="Instructions" value="1" />
-              <Tab label="Do's" value="2" />
-              <Tab label="Don'ts" value="3" />
+              <Tab label="Do" value="2" />
+              <Tab label="Do not" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1">
             <KefirInfo
               title={'Kefir Instructions'}
-              list={kefirInstructions}
+              list={kefirData.filter((item) => item.type === 'instruction')}
               ordered={true}
             />
           </TabPanel>
           <TabPanel value="2">
-            <KefirInfo title={'Kefir DO'} list={kefirDo} />
+            <KefirInfo
+              title={'DO'}
+              list={kefirData.filter((item) => item.type === 'do')}
+              ordered={false}
+            />
           </TabPanel>
           <TabPanel value="3">
-            <KefirInfo title={"Kefir DON'T"} list={kefirDont} />
+            <KefirInfo
+              title={'DO NOT'}
+              list={kefirData.filter((item) => item.type === 'do not')}
+              ordered={false}
+            />
           </TabPanel>
         </TabContext>
       </Box>

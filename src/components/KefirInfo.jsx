@@ -18,27 +18,30 @@ const KefirInfo = ({ title, list, ordered }) => {
           <CardHeader title={title} />
           <List>
             {list.map((item, index) => {
-              let count = list.reduce((acc, curr) => {
-                if (curr.charAt(0) === '-') {
-                  return acc + 1;
-                }
-                return acc;
-              }, 0);
               return (
                 <ListItem
-                  sx={item.charAt(0) === '-' ? { marginLeft: '30px' } : null}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                  }}
                   key={uuidv4()}
                 >
-                  {item.charAt(0) === '-'
-                    ? '  •'
-                    : ordered
-                    ? `${
-                        index - count + 1 > 0 ? index - count + 1 : index + 1
-                      }. `
+                  {ordered
+                    ? `${index + 1}. `
                     : ordered === false
-                    ? '•'
+                    ? ' • '
                     : null}
-                  {item.replace('-', ' ')}
+                  {item.content}
+                  {item.sub && (
+                    <List>
+                      {item.sub.map((subItem) => {
+                        return (
+                          <ListItem key={uuidv4()}>{' • ' + subItem}</ListItem>
+                        );
+                      })}
+                    </List>
+                  )}
                 </ListItem>
               );
             })}
