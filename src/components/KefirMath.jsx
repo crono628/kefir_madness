@@ -5,7 +5,7 @@ import { useAppContext } from '../AppContext';
 
 const KefirMath = ({ metric }) => {
   const { state, dispatch } = useAppContext();
-  const ratio = 16;
+  const ratio = 240 / 20;
 
   const handleGrainChange = (e) => {
     dispatch({
@@ -14,7 +14,7 @@ const KefirMath = ({ metric }) => {
         grains: e.target.value,
         tablespoons: Math.round(e.target.value / 15),
         milk: e.target.value * ratio,
-        cups: Math.round((e.target.value * ratio) / 240),
+        cups: roundHalf((e.target.value * ratio) / 240),
       },
     });
   };
@@ -57,7 +57,7 @@ const KefirMath = ({ metric }) => {
                 </Box>
               </div>
               <div style={{ fontSize: '0.7rem' }}>
-                * 1ml of milk = 1 gram if weighing
+                * 1ml of milk weighs 1 gram
               </div>
             </div>
           ) : (
@@ -71,7 +71,7 @@ const KefirMath = ({ metric }) => {
         </Box>
         <Box mt={4}>
           <Slider
-            min={15}
+            min={20}
             max={250}
             value={state.grains}
             onChange={handleGrainChange}
@@ -83,3 +83,7 @@ const KefirMath = ({ metric }) => {
 };
 
 export default KefirMath;
+
+function roundHalf(num) {
+  return Math.round(num * 2) / 2;
+}

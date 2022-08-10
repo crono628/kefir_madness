@@ -15,7 +15,7 @@ function reducer(state, { type, payload }) {
 }
 
 const initialState = {
-  grains: 15,
+  grains: 20,
   milk: 240,
   tablespoons: 1,
   cups: 1,
