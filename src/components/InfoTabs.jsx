@@ -16,8 +16,12 @@ const InfoTabs = () => {
       <Box mt={3}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList onChange={handleTabs} aria-label="lab API tabs example">
-              <Tab label="Instructions" value="1" />
+            <TabList
+              onChange={handleTabs}
+              variant="scrollable"
+              scrollButtons="auto"
+            >
+              <Tab label="Steps" value="1" />
               <Tab label="Tips" value="2" />
               <Tab label="Do" value="3" />
               <Tab label="Do not" value="4" />
