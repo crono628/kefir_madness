@@ -12,7 +12,7 @@ const KefirMath = ({ metric }) => {
       type: 'set_multiple',
       payload: {
         grains: e.target.value,
-        tablespoons: Math.round(e.target.value / 15),
+        tablespoons: roundHalf(e.target.value / 15),
         milk: e.target.value * ratio,
         cups: roundHalf((e.target.value * ratio) / 240),
       },
@@ -25,31 +25,38 @@ const KefirMath = ({ metric }) => {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     width: '100%',
-    height: '100%',
+    height: '60px',
     margin: '10px',
   };
 
   return (
     <Card elevation={3}>
-      <Box m={3}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+        m={3}
+      >
         <Box sx={boxStyle}>
           {metric ? (
-            <div>
+            <Box py={0.7}>
               Grams of kefir grains:
               <Box component="span" ml={1} sx={{ position: 'absolute' }}>
                 {state.grains}
               </Box>
-            </div>
+            </Box>
           ) : (
-            <div>
+            <Box py={0.7}>
               Tablespoons:
               <Box component="span" ml={1} sx={{ position: 'absolute' }}>
                 {state.tablespoons}
               </Box>
-            </div>
+            </Box>
           )}
           {metric ? (
-            <div>
+            <Box py={0.7}>
               <div>
                 Milliliters of milk:
                 <Box component="span" ml={1} sx={{ position: 'absolute' }}>
@@ -59,14 +66,14 @@ const KefirMath = ({ metric }) => {
               <div style={{ fontSize: '0.7rem' }}>
                 * 1ml of milk weighs 1 gram
               </div>
-            </div>
+            </Box>
           ) : (
-            <div>
+            <Box py={0.7}>
               8oz cups of milk:
               <Box component="span" ml={1} sx={{ position: 'absolute' }}>
                 {state.cups}
               </Box>
-            </div>
+            </Box>
           )}
         </Box>
         <Box mt={4}>

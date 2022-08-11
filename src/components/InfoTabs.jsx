@@ -11,6 +11,11 @@ const InfoTabs = () => {
     setValue(newValue);
   };
 
+  const panelStyles = {
+    padding: '0px',
+    paddingTop: '24px',
+  };
+
   return (
     <>
       <Box mt={3}>
@@ -19,7 +24,8 @@ const InfoTabs = () => {
             <TabList
               onChange={handleTabs}
               variant="scrollable"
-              scrollButtons="auto"
+              scrollButtons={true}
+              allowScrollButtonsMobile
             >
               <Tab label="Steps" value="1" />
               <Tab label="Tips" value="2" />
@@ -27,29 +33,29 @@ const InfoTabs = () => {
               <Tab label="Do not" value="4" />
             </TabList>
           </Box>
-          <TabPanel value="1">
+          <TabPanel sx={panelStyles} value="1">
             <KefirInfo
               title={'Kefir Instructions'}
               list={kefirData.filter((item) => item.type === 'instruction')}
               ordered={true}
             />
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel sx={panelStyles} value="2">
             <KefirInfo
               title={'Tips'}
               list={kefirData.filter((item) => item.type === 'tips')}
             />
           </TabPanel>
-          <TabPanel value="3">
+          <TabPanel sx={panelStyles} value="3">
             <KefirInfo
-              title={'DO'}
+              title={'Do:'}
               list={kefirData.filter((item) => item.type === 'do')}
               ordered={false}
             />
           </TabPanel>
-          <TabPanel value="4">
+          <TabPanel sx={panelStyles} value="4">
             <KefirInfo
-              title={'DO NOT'}
+              title={'Do Not:'}
               list={kefirData.filter((item) => item.type === 'do not')}
               ordered={false}
             />
