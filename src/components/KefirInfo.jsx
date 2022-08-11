@@ -37,7 +37,9 @@ const KefirInfo = ({ title, list, ordered }) => {
                     <List>
                       {item.sub.map((subItem) => {
                         return (
-                          <ListItem key={uuidv4()}>{' • ' + subItem}</ListItem>
+                          <ListItem sx={{ fontSize: '0.9rem' }} key={uuidv4()}>
+                            {' • ' + subItem}
+                          </ListItem>
                         );
                       })}
                     </List>

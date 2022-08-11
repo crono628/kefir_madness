@@ -80,6 +80,38 @@ export const kefirData = [
     sub: null,
   },
   {
+    type: 'tips',
+    content: 'Each batch of kefir may turn out slightly different',
+    sub: [
+      'Room temperature affects fermentation speed',
+      'More kefir grains will result in faster fermentation',
+    ],
+  },
+  {
+    type: 'tips',
+    content:
+      'The above tool is meant only as a guide; experiment with your milk to kefir grains ratio',
+    sub: [
+      'Something like more grains in the winter and less in the summer can help you stay closer to a 24 hour fermentation cycle',
+    ],
+  },
+  {
+    type: 'tips',
+    content: '24 hour fermentation cycle is usually desirable but not required',
+    sub: [
+      'Delaying fermentation by refrigeration is an excellent choice for a busy schedule',
+      'Fermentation can be sped up by adding more kefir grains',
+    ],
+  },
+  {
+    type: 'tips',
+    content:
+      'Kefir grains will continue to grow and double in size about every 2 weeks',
+    sub: [
+      'The extra grains can be eaten, shared with friends, kept in the refrigerator, or tossed',
+    ],
+  },
+  {
     type: '',
     content: '',
     sub: null,

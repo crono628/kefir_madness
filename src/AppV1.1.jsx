@@ -4,17 +4,10 @@ import Footer from './components/Footer';
 import KefirMath from './components/KefirMath';
 import Scroll from './components/Scroll';
 import InfoTabs from './components/InfoTabs';
+import { db } from '../firebase';
 
 const App = () => {
   const [metric, setMetric] = useState(true);
-  const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: '100%',
-  };
 
   const handleMetricChange = (e) => {
     setMetric(e.target.checked);
@@ -36,7 +29,7 @@ const App = () => {
             Kefir Madness
           </Box>
           <Box>
-            {metric ? 'Metric' : 'Imperial'}{' '}
+            {metric ? 'Metric' : 'Imperial'}
             <Switch checked={metric} onChange={handleMetricChange} />
           </Box>
         </Box>

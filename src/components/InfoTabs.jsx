@@ -18,8 +18,9 @@ const InfoTabs = () => {
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleTabs} aria-label="lab API tabs example">
               <Tab label="Instructions" value="1" />
-              <Tab label="Do" value="2" />
-              <Tab label="Do not" value="3" />
+              <Tab label="Tips" value="2" />
+              <Tab label="Do" value="3" />
+              <Tab label="Do not" value="4" />
             </TabList>
           </Box>
           <TabPanel value="1">
@@ -31,12 +32,18 @@ const InfoTabs = () => {
           </TabPanel>
           <TabPanel value="2">
             <KefirInfo
+              title={'Tips'}
+              list={kefirData.filter((item) => item.type === 'tips')}
+            />
+          </TabPanel>
+          <TabPanel value="3">
+            <KefirInfo
               title={'DO'}
               list={kefirData.filter((item) => item.type === 'do')}
               ordered={false}
             />
           </TabPanel>
-          <TabPanel value="3">
+          <TabPanel value="4">
             <KefirInfo
               title={'DO NOT'}
               list={kefirData.filter((item) => item.type === 'do not')}
