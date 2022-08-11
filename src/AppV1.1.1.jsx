@@ -14,7 +14,7 @@ const App = () => {
   };
 
   return (
-    <Box>
+    <Box minHeight="1000px">
       <Scroll below={250} />
       <Container maxWidth="sm">
         <Box
