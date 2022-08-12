@@ -1,11 +1,17 @@
 import { Card, Slider } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppContext } from '../AppContext';
 
 const KefirMath = ({ metric }) => {
   const { state, dispatch } = useAppContext();
   const ratio = 240 / 20;
+
+  useEffect(() => {
+    if (metric && state.grains < 20) {
+      dispatch({ type: 'update', payload: { key: 'grains', value: 20 } });
+    }
+  }, [metric]);
 
   const handleGrainChange = (e) => {
     dispatch({
@@ -78,9 +84,11 @@ const KefirMath = ({ metric }) => {
         </Box>
         <Box mt={4}>
           <Slider
-            min={20}
+            min={metric ? 20 : 15}
             max={250}
+            marks={!metric}
             value={state.grains}
+            step={!metric ? 7.5 : 1}
             onChange={handleGrainChange}
           />
         </Box>
