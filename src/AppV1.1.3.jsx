@@ -1,17 +1,17 @@
-import { Box, Container, Switch } from '@mui/material';
-import React, { useState } from 'react';
-import Footer from './components/Footer';
-import KefirMath from './components/KefirMath';
-import Scroll from './components/Scroll';
-import InfoTabs from './components/InfoTabs';
-import { db } from '../firebase';
+import { Box, Container, Switch } from '@mui/material'
+import React, { useState } from 'react'
+import Footer from './components/Footer'
+import KefirMath from './components/KefirMath'
+import Scroll from './components/Scroll'
+import InfoTabs from './components/InfoTabs'
+import { db } from '../firebase'
 
 const App = () => {
-  const [metric, setMetric] = useState(true);
+  const [metric, setMetric] = useState(true)
 
   const handleMetricChange = (e) => {
-    setMetric(e.target.checked);
-  };
+    setMetric(e.target.checked)
+  }
 
   return (
     <Box minHeight="1200px">
@@ -40,7 +40,7 @@ const App = () => {
         <Footer />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default App;
+export default App

@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './AppV1.1.2';
-import './index1.css';
-import { CookiesProvider } from 'react-cookie';
-import { AppWrapper } from './AppContext';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './AppV1.1.3'
+import './index1.css'
+import { CookiesProvider } from 'react-cookie'
+import { AppWrapper } from './AppContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,4 +13,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </AppWrapper>
     </CookiesProvider>
   </React.StrictMode>
-);
+)

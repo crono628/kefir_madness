@@ -1,6 +1,6 @@
-import { Box, Container } from '@mui/material';
-import React from 'react';
-import github from '../assets/github.svg';
+import { Box, Container } from '@mui/material'
+import React from 'react'
+import github from '../assets/github.svg'
 
 const Footer = () => {
   return (
@@ -21,7 +21,17 @@ const Footer = () => {
           alignItems: 'center',
         }}
       >
-        <div>Copyright © 2022 MD. All rights reserved.</div>
+        <div>
+          Copyright © 2022{' '}
+          <a
+            style={{ textDecoration: 'none', color: 'black' }}
+            href="https://www.michaeldesantis.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.michaeldesantis.dev
+          </a>
+        </div>
         <div>
           <a
             href="https://github.com/crono628/kefir_madness"
@@ -33,7 +43,7 @@ const Footer = () => {
         </div>
       </Box>
     </Container>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
