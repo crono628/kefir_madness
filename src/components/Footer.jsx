@@ -10,7 +10,7 @@ const Footer = () => {
         backgroundColor: 'gray',
         position: 'fixed',
         bottom: '0',
-        fontSize: '0.7rem',
+        fontSize: '0.7rem'
       }}
       maxWidth="lg"
     >
@@ -18,11 +18,12 @@ const Footer = () => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: 'center'
         }}
       >
         <div>
-          Copyright © 2022{' '}
+          © 2022-{new Date().getFullYear()}
+          {` `}
           <a
             style={{ textDecoration: 'none', color: 'black' }}
             href="https://www.michaeldesantis.dev"

@@ -1,17 +1,17 @@
-import { Card, Slider } from '@mui/material';
-import { Box } from '@mui/system';
-import React, { useEffect } from 'react';
-import { useAppContext } from '../AppContext';
+import { Card, Slider } from '@mui/material'
+import { Box } from '@mui/system'
+import React, { useEffect } from 'react'
+import { useAppContext } from '../AppContext'
 
 const KefirMath = ({ metric }) => {
-  const { state, dispatch } = useAppContext();
-  const ratio = 240 / 20;
+  const { state, dispatch } = useAppContext()
+  const ratio = 240 / 15
 
   useEffect(() => {
-    if (metric && state.grains < 20) {
-      dispatch({ type: 'update', payload: { key: 'grains', value: 20 } });
+    if (metric && state.grains < 15) {
+      dispatch({ type: 'update', payload: { key: 'grains', value: 15 } })
     }
-  }, [metric]);
+  }, [metric])
 
   const handleGrainChange = (e) => {
     dispatch({
@@ -20,10 +20,10 @@ const KefirMath = ({ metric }) => {
         grains: e.target.value,
         tablespoons: roundHalf(e.target.value / 15),
         milk: e.target.value * ratio,
-        cups: roundHalf((e.target.value * ratio) / 240),
-      },
-    });
-  };
+        cups: roundHalf((e.target.value * ratio) / 240)
+      }
+    })
+  }
 
   const boxStyle = {
     display: 'flex',
@@ -32,8 +32,8 @@ const KefirMath = ({ metric }) => {
     justifyContent: 'flex-start',
     width: '100%',
     height: '60px',
-    margin: '10px',
-  };
+    margin: '10px'
+  }
 
   return (
     <Card elevation={3}>
@@ -41,7 +41,7 @@ const KefirMath = ({ metric }) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
+          justifyContent: 'space-between'
         }}
         m={3}
       >
@@ -84,7 +84,7 @@ const KefirMath = ({ metric }) => {
         </Box>
         <Box mt={4}>
           <Slider
-            min={metric ? 20 : 15}
+            min={15}
             max={250}
             marks={!metric}
             value={state.grains}
@@ -94,11 +94,11 @@ const KefirMath = ({ metric }) => {
         </Box>
       </Box>
     </Card>
-  );
-};
+  )
+}
 
-export default KefirMath;
+export default KefirMath
 
 function roundHalf(num) {
-  return Math.round(num * 2) / 2;
+  return Math.round(num * 2) / 2
 }
